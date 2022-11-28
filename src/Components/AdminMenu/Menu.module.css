@@ -1,0 +1,32 @@
+.menu {
+  width: 20%;
+  height: 100%;
+}
+
+.menu_logo {
+  padding: 2%;
+  text-align: center;
+}
+
+.menu_logo img {
+  width: 25%;
+  height: 25%;
+  border-radius: 50%;
+}
+
+.menu_logo p {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .menu_logo P {
+    display: none;
+  }
+  .menu_logo img {
+    width: 60px;
+    height: 60px;
+  }
+  .menu_logo {
+    padding-bottom: 14%;
+  }
+}

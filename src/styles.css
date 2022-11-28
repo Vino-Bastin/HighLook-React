@@ -1,0 +1,441 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: white;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 1)),
+    url("bgimg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.nav-bar {
+  padding: 10px;
+  display: flex;
+}
+
+.nav-item-left {
+  width: 20%;
+  text-align: center;
+}
+
+.nav-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nav-item-left p {
+  padding-top: 3px;
+  color: white;
+}
+
+.nav-item-right {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-item-right button {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  background-color: transparent;
+  border: none;
+}
+
+.nav-item-right button:hover {
+  cursor: pointer;
+  background-color: black;
+  font-size: large;
+}
+
+.nav-item-right button:active {
+  transform: translateY(4px);
+}
+
+.home-section {
+  padding-top: 3%;
+  text-align: center;
+  color: white;
+}
+
+.home-section h5 {
+  padding-top: 2%;
+}
+
+.order-number-input {
+  display: flex;
+  justify-content: center;
+}
+
+.order-number-input input {
+  min-width: 25%;
+  margin: 10px;
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.order-number-input button {
+  margin: 10px;
+}
+
+.error {
+  display: flex;
+  color: white;
+  font-size: larger;
+  height: 20vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.signin {
+  padding-top: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.signin form {
+  text-align: center;
+  max-width: 60%;
+  min-width: 25%;
+  margin-bottom: 10px;
+}
+
+.signin form input[type="email"] {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.signin form input[type="password"] {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.tracking-section {
+  color: white;
+  width: 80%;
+  margin-left: 10%;
+  background-color: white;
+  color: black;
+  opacity: 80%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* min-height: 20vh; */
+}
+
+.tracking-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.processing-bar {
+  width: 5%;
+  height: 5px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.processing-bar-filled {
+  background-color: black;
+  color: white;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8vh;
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  width: auto;
+  min-width: 10%;
+  font-size: small;
+  border: 2px solid black;
+}
+
+.status-filled {
+  background-color: black;
+  color: white;
+  font-size: large;
+}
+
+.loading {
+  z-index: 5;
+  display: flex;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  background-color: white;
+  opacity: 50%;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.spinner {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-spinner {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 3px solid black;
+  border-color: black transparent black transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.tracking-failure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 20vh;
+}
+
+.admin-container {
+  background-color: white;
+  opacity: 90%;
+  color: black;
+  position: absolute;
+  display: flex;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.main-content {
+  width: 80%;
+  /* height: 100vh; */
+}
+
+.new-user {
+  padding: 2%;
+  max-width: 80%;
+}
+
+.new-user label {
+  padding-top: 4px;
+}
+
+.new-user button {
+  margin-top: 10px;
+}
+
+.filter {
+  width: 100%;
+  margin: 0;
+}
+
+.search-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.content {
+  padding-top: 5px;
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.content-new {
+  padding-top: 5px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.content-overview {
+  padding-top: 5px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.order {
+  padding: 4px;
+  margin: 2px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.lineitem {
+  margin: 2px;
+  padding-bottom: 4px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.edit-button {
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-button button {
+  margin: 2px;
+}
+
+.new-lineitem {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.myworks-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.myworks-buttons button {
+  width: 49%;
+}
+
+.display-none {
+  display: none;
+}
+
+/* order status css  */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: inherit;
+  width: inherit;
+}
+
+ul {
+  display: flex;
+}
+
+ul li {
+  list-style: none;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  margin: 0 15px;
+}
+
+.text {
+  color: #ff4732;
+  font-weight: 600;
+}
+
+ul li .uil {
+  font-size: 200%;
+  color: #ff4732;
+  margin: 20px 0;
+}
+
+ul li .processing {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(145, 154, 161);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  margin: 10px 0;
+  position: relative;
+  cursor: pointer;
+  color: white;
+}
+
+.two::after,
+.three::after,
+.four::after {
+  content: " ";
+  width: 150px;
+  height: 10px;
+  background-color: rgb(145, 154, 161);
+  position: absolute;
+  right: 30px;
+}
+
+ul li .processing .uil {
+  display: none;
+}
+
+ul li .active {
+  background-color: #ff4732;
+}
+
+ul li .active p {
+  display: none;
+}
+
+ul li .active .uil {
+  display: flex;
+  color: white;
+  margin: 0;
+}
+
+.active::after {
+  background-color: #ff4732;
+}
+
+@media (max-width: 980px) {
+  ul {
+    flex-direction: column;
+  }
+  ul li {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  ul li .processing {
+    margin: 0 30px;
+  }
+
+  .two::after,
+  .three::after,
+  .four::after {
+    width: 10px;
+    height: 60px;
+    bottom: 30px;
+    left: 10px;
+  }
+  ul li .active .uil {
+    display: flex;
+    margin: 0%;
+  }
+}

@@ -1,0 +1,29 @@
+.message_close_button {
+  cursor: pointer;
+}
+
+.message_container {
+  position: sticky;
+  padding: 1% 7% 0% 7%;
+  min-height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  animation: fadeIn 1s;
+}
+
+.message_container_failed {
+  background-color: red;
+}
+
+.message_container_success {
+  background-color: green;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
