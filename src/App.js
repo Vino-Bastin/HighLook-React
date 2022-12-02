@@ -1,8 +1,6 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-
-import { verifyUserSession } from "./Store/reducers/authReducers";
+import { useSelector } from "react-redux";
 
 import AdminPage from "./Page/AdminPage";
 import ErrorPage from "./Page/ErrorPage";
@@ -28,11 +26,6 @@ import Spinner from "./utils/Spinner";
 
 function App() {
   const { loading, message } = useSelector((state) => state);
-  const dispatch = useDispatch();
-
-  useLayoutEffect(() => {
-    dispatch(verifyUserSession());
-  }, [dispatch]);
 
   return (
     <>

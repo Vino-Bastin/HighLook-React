@@ -11,7 +11,13 @@ import Button from "../../../utils/Button";
 
 import { buildObject } from "../../../utils/helperFunctions";
 
-const NewLineItem = ({ newItemTemplate, typeOptions, label, orderNumber }) => {
+const NewLineItem = ({
+  newItemTemplate,
+  typeOptions,
+  label,
+  orderNumber,
+  setIsValidOrder,
+}) => {
   newItemTemplate.orderNumber = orderNumber;
   const [isNew, setIsNew] = useState(true);
   const [isShow, setIsShow] = useState(false);
@@ -44,7 +50,10 @@ const NewLineItem = ({ newItemTemplate, typeOptions, label, orderNumber }) => {
       );
     }
 
-    if (response) setIsNew(false);
+    if (response) {
+      setIsNew(false);
+      setIsValidOrder(true);
+    }
   };
 
   return (

@@ -15,7 +15,6 @@ const Menu = () => {
   return (
     <div className={`${styles.menu}`}>
       <NavLogo className={`${styles.menu_logo}`} onClick={onClickHandler} />
-      <br />
       <MenuContent />
     </div>
   );

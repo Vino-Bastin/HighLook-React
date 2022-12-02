@@ -263,6 +263,14 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+@media only screen and (max-width: 600px) {
+  .filter {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .search-btn {
   display: flex;
   flex-direction: column;
@@ -438,4 +446,13 @@ ul li .active .uil {
     display: flex;
     margin: 0%;
   }
+}
+
+.order-complete {
+  justify-content: center;
+  display: flex;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background-color: white;
 }

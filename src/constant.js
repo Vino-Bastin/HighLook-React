@@ -115,14 +115,13 @@ export const newShirt = {
 };
 
 export const newOrder = {
-  _id: "",
   orderNumber: "",
   orderDate: "",
-  schoolName: " ",
-  standard: " ",
+  schoolName: "",
+  standard: "",
   name: "",
   mobileNumber: "",
-  status: "",
+  status: "ordered",
   quantity: 0,
 };
 

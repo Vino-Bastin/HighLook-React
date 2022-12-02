@@ -39,7 +39,6 @@ export const fetchData = (
   token = "",
   data = undefined
 ) => {
-  console.log(URL);
   return fetch(URL, {
     method,
     headers: {

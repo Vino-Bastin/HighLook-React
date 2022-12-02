@@ -20,7 +20,7 @@ const OrderStatus = ({ status }) => {
           <p className="text">Ordered</p>
         </li>
         <li>
-          <i class=" icon uil uil-process"></i>
+          <i className=" icon uil uil-process"></i>
           <div
             className={`processing two ${
               ["preparing", "ready", "delivered"].includes(status) && "active"

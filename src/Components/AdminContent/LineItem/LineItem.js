@@ -18,7 +18,7 @@ const buildObject = (event) => {
   return obj;
 };
 
-const LineItem = ({ data, typeOptions, onSubmit, lineLtemType }) => {
+const LineItem = ({ data, typeOptions, onSubmit, lineItemType }) => {
   const [isUpdate, setIsUpdate] = useState(false);
 
   const updateStateHandler = (event) => {
@@ -29,7 +29,7 @@ const LineItem = ({ data, typeOptions, onSubmit, lineLtemType }) => {
   const formSubmitHandler = (event) => {
     event.preventDefault();
     setIsUpdate(false);
-    onSubmit(buildObject(event), lineLtemType);
+    onSubmit(buildObject(event), lineItemType);
   };
 
   return (
@@ -39,11 +39,13 @@ const LineItem = ({ data, typeOptions, onSubmit, lineLtemType }) => {
         data={data}
         typeOptions={typeOptions}
       />
-      <FormUpdateButton
-        isUpdate={isUpdate}
-        setIsUpdate={setIsUpdate}
-        updateStateHandler={updateStateHandler}
-      />
+      {data.isActive && (
+        <FormUpdateButton
+          isUpdate={isUpdate}
+          setIsUpdate={setIsUpdate}
+          updateStateHandler={updateStateHandler}
+        />
+      )}
     </form>
   );
 };

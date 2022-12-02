@@ -4,6 +4,7 @@
 }
 
 .menu_logo {
+  margin-bottom: 20px;
   padding: 2%;
   text-align: center;
 }
@@ -27,6 +28,6 @@
     height: 60px;
   }
   .menu_logo {
-    padding-bottom: 14%;
+    height: 15vh;
   }
 }

@@ -6,9 +6,9 @@ import useLocalStore from "../../../Hooks/useLocalStore";
 import { getAllOrders } from "../../../Store/reducers/ordersReducers";
 
 import Search from "../Search/Search";
-import Order from "./Order";
 import Pagination from "../Pagination/Pagination";
 import FallBackMessage from "../../../utils/FallBackMessage";
+import OrderForm from "./OrderForm";
 
 const Orders = () => {
   const [{ data, pageNumber }, { setFilters, setPageNumber }] =
@@ -40,7 +40,7 @@ const Orders = () => {
                 className="row order"
                 onClick={clickHandler.bind(order.orderNumber)}
               >
-                <Order data={order} disabled isNew={false} />
+                <OrderForm orderData={order} disabled isNew={false} />
               </div>
             );
           })
