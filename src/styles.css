@@ -102,7 +102,7 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
 }
 
-.signin {
+.sign-in {
   padding-top: 3%;
   display: flex;
   flex-direction: column;
@@ -111,22 +111,35 @@ input::-webkit-inner-spin-button {
   color: white;
 }
 
-.signin form {
-  text-align: center;
+.sign-in div {
+  border-radius: 12px;
   max-width: 60%;
   min-width: 25%;
+  text-align: center;
+  background-color: white;
+  opacity: 90%;
+  color: black;
+  padding: 1%;
+}
+
+.sign-in div button {
+  color: black;
+}
+
+.sign-in form {
+  text-align: center;
+  width: 100%;
   margin-bottom: 10px;
 }
 
-.signin form input[type="email"] {
+.sign-in form label {
   margin-top: 10px;
   width: 100%;
+  text-align: left;
 }
 
-.signin form input[type="password"] {
+.sign-in form button[type="submit"] {
   margin-top: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
 }
 
 .tracking-section {

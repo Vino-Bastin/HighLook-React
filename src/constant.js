@@ -88,12 +88,11 @@ export const newPant = {
     B: "",
     IN: "",
   },
-  _id: "",
   orderId: "",
   quantity: 1,
   unitOfMeasurement: "inch",
   status: "ordered",
-  type: "Full-Size",
+  type: "full-size",
 };
 
 export const newShirt = {
@@ -106,12 +105,11 @@ export const newShirt = {
     HF: "",
     SL: "",
   },
-  _id: "",
   orderId: "",
   quantity: 1,
   unitOfMeasurement: "inch",
   status: "ordered",
-  type: "Full-Size",
+  type: "full-size",
 };
 
 export const newOrder = {
@@ -125,4 +123,4 @@ export const newOrder = {
   quantity: 0,
 };
 
-export const DOMAIN = "/api";
+export const DOMAIN = "http://localhost:5000/api";

@@ -77,3 +77,46 @@ export const logOut = (token) => {
     );
   });
 };
+
+export const passwordResetMail = catchAsync(async (dispatch, email) => {
+  const response = await fetchData(
+    `${DOMAIN}/send-password-reset-mail`,
+    "POST",
+    "",
+    email
+  );
+
+  const data = await response.json();
+  if (data.status === "success") {
+    dispatch(
+      setMessage({ isFailed: false, isShow: true, message: data.message })
+    );
+  } else {
+    throw new Error(data.message);
+  }
+});
+
+export const passwordReset = catchAsync(async (dispatch, newPasswordData) => {
+  console.log(newPasswordData);
+
+  const response = await fetchData(
+    `${DOMAIN}/password-reset`,
+    "POST",
+    "",
+    newPasswordData
+  );
+
+  const data = await response.json();
+
+  if (data.status === "success") {
+    dispatch(
+      setMessage({
+        isFailed: false,
+        isShow: true,
+        message: data.message,
+      })
+    );
+  } else {
+    throw new Error(data.message);
+  }
+});

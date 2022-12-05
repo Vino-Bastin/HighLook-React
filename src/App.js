@@ -17,6 +17,7 @@ import Payments from "./Components/AdminContent/Payments/Payments";
 import OrderDetail from "./Components/AdminContent/Orders/OrderDetail";
 import UserDetails from "./Components/AdminContent/UserDetails/UserDetails";
 import Statistics from "./Components/AdminContent/Statistics/Statistics";
+import PasswordReset from "./Page/PasswordReset";
 
 import PrivateRoute from "./Components/PrivateRoute";
 import ProtectByRole from "./Components/ProtectByRole";
@@ -57,6 +58,7 @@ function App() {
           </Route>
         </Route>
         <Route path="/status/:orderId" element={<OrderStatus />} />
+        <Route path="/password-reset/:token" element={<PasswordReset />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>

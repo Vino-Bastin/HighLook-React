@@ -9,7 +9,7 @@ const Select = forwardRef((props, ref) => {
     >
       {props.options.map((element) => {
         return (
-          <option key={element.value} {...element}>
+          <option key={element.value} value={element.value}>
             {element.name}
           </option>
         );
