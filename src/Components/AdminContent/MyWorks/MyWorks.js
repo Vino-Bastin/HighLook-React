@@ -45,14 +45,14 @@ const MyWorks = () => {
           <WorkItems
             items={data.pants}
             itemTypeOptions={pantTypeOptions}
-            lineLtemType="pant"
+            lineItemType="Pant"
             setMyWork={setData}
           />
         ) : (
           <WorkItems
             items={data.shirts}
             itemTypeOptions={shirtTypeOptions}
-            lineLtemType="shirt"
+            lineItemType="Shirt"
             setMyWork={setData}
           />
         )}

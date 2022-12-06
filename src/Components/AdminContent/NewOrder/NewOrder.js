@@ -8,13 +8,7 @@ import OrderForm from "../Orders/OrderForm";
 import NewLineItem from "./../LineItem/NewLineItem";
 import Button from "../../../utils/Button";
 
-import {
-  newPant,
-  pantTypeOptions,
-  newShirt,
-  shirtTypeOptions,
-  newOrder,
-} from "../../../constant";
+import { newPant, newShirt, newOrder } from "../../../constant";
 
 const NewOrder = () => {
   const [isNew, setIsNew] = useState(true);
@@ -90,14 +84,12 @@ const NewOrder = () => {
         <>
           <NewLineItem
             newItemTemplate={newPant}
-            typeOptions={pantTypeOptions}
             label="Pant"
             orderNumber={order.orderNumber}
             setIsValidOrder={setIsValidOrder}
           />
           <NewLineItem
             newItemTemplate={newShirt}
-            typeOptions={shirtTypeOptions}
             label="Shirt"
             orderNumber={order.orderNumber}
             setIsValidOrder={setIsValidOrder}

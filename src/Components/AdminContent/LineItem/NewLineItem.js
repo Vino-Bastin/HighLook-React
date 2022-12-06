@@ -6,14 +6,11 @@ import {
   createNewShirt,
 } from "../../../Store/reducers/newOrder";
 
-import LineItemField from "../LineItem/LineItemFields";
 import Button from "../../../utils/Button";
-
-import { buildObject } from "../../../utils/helperFunctions";
+import LineItemForm from "./LineItemForm";
 
 const NewLineItem = ({
   newItemTemplate,
-  typeOptions,
   label,
   orderNumber,
   setIsValidOrder,
@@ -26,8 +23,7 @@ const NewLineItem = ({
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const formSubmitHandler = async (event) => {
-    event.preventDefault();
+  const formSubmitHandler = async (data) => {
     let response = "";
 
     if (label === "Pant") {
@@ -36,7 +32,7 @@ const NewLineItem = ({
         setNewItem,
         auth.JWT,
         orderNumber,
-        buildObject(event)
+        data
       );
     }
 
@@ -46,7 +42,7 @@ const NewLineItem = ({
         setNewItem,
         auth.JWT,
         orderNumber,
-        buildObject(event)
+        data
       );
     }
 
@@ -69,26 +65,14 @@ const NewLineItem = ({
           New {label || "item"}
         </Button>
       </div>
-      {isShow ? (
-        <form className="row lineitem" onSubmit={formSubmitHandler}>
-          <LineItemField
-            data={newItem}
-            typeOptions={typeOptions}
-            isUpdate={isNew}
-            isNew
-          />
-          {isNew ? (
-            <div className="edit-button">
-              <Button className="btn btn-danger" type="submit">
-                Submit
-              </Button>
-            </div>
-          ) : (
-            <></>
-          )}
-        </form>
-      ) : (
-        <></>
+      {isShow && (
+        <LineItemForm
+          onSubmit={formSubmitHandler}
+          isNew={true}
+          isShowEditButton={isNew}
+          itemType={label}
+          value={newItem}
+        />
       )}
     </>
   );

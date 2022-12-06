@@ -1,12 +1,8 @@
-import React, { forwardRef } from "react";
+import React from "react";
 
-const Select = forwardRef((props, ref) => {
+const Select = (props) => {
   return (
-    <select
-      ref={ref}
-      {...props}
-      className={props.className ? props.className : "form-select"}
-    >
+    <select {...props} className="form-select">
       {props.options.map((element) => {
         return (
           <option key={element.value} value={element.value}>
@@ -16,6 +12,6 @@ const Select = forwardRef((props, ref) => {
       })}
     </select>
   );
-});
+};
 
 export default Select;

@@ -8,19 +8,19 @@ import { getMyWork } from "../../../Store/reducers/userReducers";
 
 // import styles from "./WorkItems.module.css";
 
-import LineItem from "../LineItem/LineItem";
 import FallBackMessage from "../../../utils/FallBackMessage";
+import LineItemForm from "../LineItem/LineItemForm";
 
-const WorkItems = ({ items, itemTypeOptions, lineLtemType, setMyWork }) => {
+const WorkItems = ({ items, lineItemType, setMyWork }) => {
   const { auth } = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const onSubmitHandler = async (lineItemData, lineLtemType) => {
+  const onSubmitHandler = async (lineItemData, lineItemType) => {
     let response;
-    if (lineLtemType === "pant") {
+    if (lineItemType === "Pant") {
       response = await updatePant(dispatch, auth.JWT, lineItemData);
     }
-    if (lineLtemType === "shirt") {
+    if (lineItemType === "Shirt") {
       response = await updateShirt(dispatch, auth.JWT, lineItemData);
     }
 
@@ -32,15 +32,16 @@ const WorkItems = ({ items, itemTypeOptions, lineLtemType, setMyWork }) => {
   return (
     <>
       {items.length === 0 ? (
-        <FallBackMessage>{`You Don't have any ${lineLtemType} Work`}</FallBackMessage>
+        <FallBackMessage>{`You Don't have any ${lineItemType} Work`}</FallBackMessage>
       ) : (
         items.map((item) => {
           return (
-            <LineItem
-              data={item}
-              typeOptions={itemTypeOptions}
+            <LineItemForm
+              isNew={false}
+              value={item}
               key={item._id}
-              lineLtemType={lineLtemType}
+              itemType={lineItemType}
+              isShowEditButton={true}
               onSubmit={onSubmitHandler}
             />
           );

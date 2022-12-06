@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../utils/Button";
 
-const FormUpdateButton = ({ isUpdate, setIsUpdate, updateStateHandler }) => {
+const UpdateButton = ({ isUpdate, setIsUpdate, onSubmit }) => {
   return (
     <div className="edit-button">
       {isUpdate ? (
@@ -9,16 +9,12 @@ const FormUpdateButton = ({ isUpdate, setIsUpdate, updateStateHandler }) => {
           <Button className="btn" onClick={() => setIsUpdate(false)}>
             Cancel
           </Button>
-          <Button className="btn btn-danger" type="submit">
+          <Button className="btn btn-danger" onClick={onSubmit}>
             Update
           </Button>
         </>
       ) : (
-        <Button
-          className="btn btn-primary"
-          type="reset"
-          onClick={updateStateHandler}
-        >
+        <Button className="btn btn-primary" onClick={() => setIsUpdate(true)}>
           Edit
         </Button>
       )}
@@ -26,4 +22,4 @@ const FormUpdateButton = ({ isUpdate, setIsUpdate, updateStateHandler }) => {
   );
 };
 
-export default FormUpdateButton;
+export default UpdateButton;

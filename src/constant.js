@@ -123,4 +123,4 @@ export const newOrder = {
   quantity: 0,
 };
 
-export const DOMAIN = "/api";
+export const DOMAIN = "http://localhost:5000/api";

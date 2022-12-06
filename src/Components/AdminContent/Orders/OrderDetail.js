@@ -10,10 +10,8 @@ import { updatePant } from "./../../../Store/reducers/pantsReducers";
 import { updateShirt } from "../../../Store/reducers/shirtsReducers";
 
 import OrderForm from "./OrderForm";
-import LineItem from "../LineItem/LineItem";
-import FormUpdateButton from "../LineItem/FormUpdateButton";
-
-import { pantTypeOptions, shirtTypeOptions } from "./../../../constant";
+import UpdateButton from "../LineItem/UpdateButton";
+import LineItemForm from "../LineItem/LineItemForm";
 
 const OrderDetail = () => {
   const [isUpdate, setIsUpdate] = useState(false);
@@ -29,14 +27,7 @@ const OrderDetail = () => {
     getOrderDetails(dispatch, navigate, setOrderData, orderId, auth.JWT);
   }, [orderId, auth.JWT, dispatch, navigate]);
 
-  const updateStateHandler = (event) => {
-    event.preventDefault();
-    setIsUpdate(!isUpdate);
-  };
-
-  const formSubmitHandler = async (event) => {
-    event.preventDefault();
-
+  const formSubmitHandler = async () => {
     if (await updateOrder(dispatch, setOrderData, auth.JWT, orderData)) {
       setIsUpdate(false);
     }
@@ -44,10 +35,10 @@ const OrderDetail = () => {
 
   const onSubmitHandler = async (lineItemData, lineItemType) => {
     let response;
-    if (lineItemType === "pant") {
+    if (lineItemType === "Pant") {
       response = await updatePant(dispatch, auth.JWT, lineItemData);
     }
-    if (lineItemType === "shirt") {
+    if (lineItemType === "Shirt") {
       response = await updateShirt(dispatch, auth.JWT, lineItemData);
     }
 
@@ -62,7 +53,7 @@ const OrderDetail = () => {
 
   return (
     <div className="container content-overview">
-      <form className="row order" onSubmit={formSubmitHandler}>
+      <div className="row order">
         <OrderForm
           disabled={!isUpdate}
           orderData={orderData}
@@ -70,22 +61,23 @@ const OrderDetail = () => {
           isNew={false}
         />
         {orderData.isActive && (
-          <FormUpdateButton
+          <UpdateButton
             isUpdate={isUpdate}
             setIsUpdate={setIsUpdate}
-            updateStateHandler={updateStateHandler}
+            onSubmit={formSubmitHandler}
           />
         )}
-      </form>
+      </div>
       <br />
       {orderData?.lineItems?.pants && (
         <>
           <h3>Pant</h3>
-          <LineItem
-            data={orderData.lineItems.pants}
-            typeOptions={pantTypeOptions}
+          <LineItemForm
+            isShowEditButton={orderData.isActive}
+            isNew={false}
+            itemType="Pant"
             onSubmit={onSubmitHandler}
-            lineItemType={"pant"}
+            value={orderData.lineItems.pants}
           />
         </>
       )}
@@ -93,11 +85,12 @@ const OrderDetail = () => {
       {orderData?.lineItems?.shirts && (
         <>
           <h3>Shirt</h3>
-          <LineItem
-            data={orderData.lineItems.shirts}
-            typeOptions={shirtTypeOptions}
+          <LineItemForm
+            isShowEditButton={orderData.isActive}
+            isNew={false}
+            itemType="Shirt"
             onSubmit={onSubmitHandler}
-            lineItemType={"shirt"}
+            value={orderData.lineItems.shirts}
           />
         </>
       )}

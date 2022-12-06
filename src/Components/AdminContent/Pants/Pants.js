@@ -6,11 +6,9 @@ import useLocalStore from "../../../Hooks/useLocalStore";
 import { getAllPants, updatePant } from "../../../Store/reducers/pantsReducers";
 
 import Search from "../Search/Search";
-import LineItem from "../LineItem/LineItem";
 import Pagination from "../Pagination/Pagination";
 import FallBackMessage from "../../../utils/FallBackMessage";
-
-import { pantTypeOptions } from "./../../../constant";
+import LineItemForm from "../LineItem/LineItemForm";
 
 const Pants = () => {
   const [
@@ -42,12 +40,13 @@ const Pants = () => {
         ) : (
           data.map((data) => {
             return (
-              <LineItem
-                key={data._id}
-                data={data}
-                typeOptions={pantTypeOptions}
+              <LineItemForm
+                isShowEditButton={data.isActive}
+                isNew={false}
+                itemType="Pant"
+                value={data}
                 onSubmit={onSubmitHandler}
-                lineLtemType={"pant"}
+                key={data._id}
               />
             );
           })

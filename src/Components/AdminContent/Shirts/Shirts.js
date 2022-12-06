@@ -8,12 +8,11 @@ import {
   updateShirt,
 } from "../../../Store/reducers/shirtsReducers";
 
-import LineItem from "../LineItem/LineItem";
 import Pagination from "../Pagination/Pagination";
 import Search from "../Search/Search";
 import FallBackMessage from "../../../utils/FallBackMessage";
 
-import { shirtTypeOptions } from "./../../../constant";
+import LineItemForm from "../LineItem/LineItemForm";
 
 const Shirts = () => {
   const [
@@ -45,12 +44,13 @@ const Shirts = () => {
         ) : (
           data.map((data) => {
             return (
-              <LineItem
-                key={data._id}
-                data={data}
-                typeOptions={shirtTypeOptions}
+              <LineItemForm
+                isShowEditButton={data.isActive}
                 onSubmit={onSubmitHandler}
-                lineLtemType={"shirt"}
+                isNew={false}
+                itemType="Shirt"
+                value={data}
+                key={data._id}
               />
             );
           })
