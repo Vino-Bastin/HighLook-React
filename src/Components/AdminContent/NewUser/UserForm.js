@@ -55,8 +55,9 @@ const UserForm = ({ value, onChange, disabled }) => {
           />
         </div>
         <div className="form-group col-sm">
-          <label className="form-label">Email</label>
+          <label className="form-label">Role</label>
           <Select
+            name="role"
             disabled={disabled}
             options={UserRoleOptions}
             value={value.role}
